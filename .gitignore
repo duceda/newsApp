@@ -29,3 +29,10 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+
+node_modules/
+temp/
+*.DS_Store
+*.log
+*.swp
