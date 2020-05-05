@@ -1,17 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header no-border>
+  <ion-toolbar color='dark'>
     <ion-title>
-      Tab 2
+      News headings
     </ion-title>
   </ion-toolbar>
+
+  <ion-segment scrollable mode='md' color='primary' (ionChange)='changeCategory($event)'>
+    <ion-segment-button *ngFor='let category of categories' mode='md' [value]="category">
+      <ion-label text-capitalize> {{ category }} </ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color='dark'>
+  <app-noticias [noticias]='noticias'></app-noticias>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-infinite-scroll class='infinite-scroll-white' threshold="150px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="crescent" loadingText="Loading data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
 </ion-content>

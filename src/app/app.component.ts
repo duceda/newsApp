@@ -20,7 +20,11 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
+
+      // Esto es la barra de estado del dispositivo, que la queremos poner en color claro
+      // Porque la app es oscura
+      this.statusBar.styleLightContent();
       this.splashScreen.hide();
     });
   }
